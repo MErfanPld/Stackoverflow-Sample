@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Local App
     'accounts.apps.AccountsConfig',
     'core.apps.CoreConfig',
+
+    # Thired App
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -72,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -82,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -102,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -116,8 +115,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ARVAN CLOUDE
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = '508287d1-118f-4382-8a7c-311c6dd89c4a'
+AWS_SECRET_ACCESS_KEY = 'f8102b0caa7a68cac31253bbae691c87b9f108dff325730faefd18acd256b42d'
+AWS_STORAGE_BUCKET_NAME = 'erfan0840'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
+AWS_S3_FILE_OVERWRITE = False
