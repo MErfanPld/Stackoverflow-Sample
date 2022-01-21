@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
 
     # Thired App
-    'storages'
+    'storages',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
