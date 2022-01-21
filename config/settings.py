@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Thired App
     'storages',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,11 @@ AWS_SERVICE_NAME = 's3'
 AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
 AWS_S3_FILE_OVERWRITE = False
 AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
+
+# REST_FRAMEWORK
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
