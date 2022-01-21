@@ -4,11 +4,11 @@ from django.conf import settings
 
 class Bucket:
     """CDN bucket manager
-    	The init method creates connection
-    	NOTE:
-    		None of these methods are async. these methods are private interface.
-    		use public interface in tasks module.
-    	"""
+    The init method creates connection
+    NOTE:
+        None of these methods are async. these methods are private interface.
+        use public interface in tasks module.
+    """
 
     def __init__(self):
         session = boto3.session.Session()
@@ -29,6 +29,10 @@ class Bucket:
     def delete_object(self, key):
         self.conn.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=key)
         return True
+
+    def download_object(self, key):
+        with open(settings.AWS_LOCAL_STORAGE + key, 'wb') as f:
+            self.conn.donwload_fileobj(settings.AWS_STORAGE_BUCKET_NAME, key, f)
 
 
 bucket = Bucket()
