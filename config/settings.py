@@ -137,6 +137,6 @@ AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
