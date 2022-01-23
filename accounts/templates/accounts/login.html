@@ -4,6 +4,7 @@
 <form action="" method="post" novalidate class="col-md-5">
     {% csrf_token %}
     {{ form.as_p }}
+    <a href="{% url 'social:begin' 'github' %}" class="btn btn-dark">Git Hub</a>
     <input type="submit" value="Login">
 </form>
 {% endblock %}
