@@ -149,10 +149,22 @@ REST_FRAMEWORK = {
 # SOCIAL_AUTH_JSONFIELD_ENABLED = True
 SOCIAL_AUTH_GITHUB_KEY = '184560479f5d450b8dd8'
 SOCIAL_AUTH_GITHUB_SECRET = 'c20a8c947e89252c7afe8cd3f389c124538c4681'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '15050732095-vr68ng3qsafqk1pji5fb00bbfed36t1e.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https//www.googleapis.com/auth/userinfo.email',
+    # 'https//www.googleapis.com/auth/userinfo.profile',
+]
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'core:home'
+SOCIAL_AUTH_LOGIN_ERROR_URL = 'core:home'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
+    # 'social_core.backends.google.GoogleAuth2',
+    'social_core.backends.google.GooglePlusAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
 
+# 15050732095-vr68ng3qsafqk1pji5fb00bbfed36t1e.apps.googleusercontent.com
+
+# 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
