@@ -15,11 +15,11 @@ class TestRegistrationForm(SimpleTestCase):
         self.assertEqual(len(form.errors), 3)
 
 
-class TestProfileImageForm(SimpleTestCase):
-    def test_valid_data(self):
-        upload_file = open(f'{settings.AWS_LOCAL_STORAGE}/wp4676613-4k-pc-wallpapers.png', 'br')
-        file_dict = {'file': SimpleUploadedFile(upload_file.name, upload_file.read())}
-        form = ProfileImageForm(file_dict)
-        self.assertTrue(form.is_valid())
+# class TestProfileImageForm(SimpleTestCase):
+#     def test_valid_data(self):
+#         upload_file = open(f'{settings.AWS_LOCAL_STORAGE}/wp4676613-4k-pc-wallpapers.png', 'br')
+#         file_dict = {'file': SimpleUploadedFile(upload_file.name, upload_file.read())}
+#         form = ProfileImageForm(file_dict)
+#         self.assertTrue(form.is_valid())
 
 
